@@ -3,6 +3,7 @@ package com.project.employee.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class MonthlySalary {
 
     @Id
@@ -21,9 +23,8 @@ public class MonthlySalary {
     @Column(name = "monthly_salary_id")
     private UUID monthlySalaryId;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private EmployeeProfile employeeProfile;
+    @Column(name = "employee_id")
+    private UUID employeeId;
 
     @Column(name = "month")
     private LocalDate month;

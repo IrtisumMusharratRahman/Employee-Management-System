@@ -3,6 +3,7 @@ package com.project.employee.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserLogin {
 
     @Id
@@ -19,9 +21,8 @@ public class UserLogin {
     @Column(name = "login_id")
     private UUID loginId;
 
-    @OneToOne
-    @JoinColumn(name = "employee_id")
-    private EmployeeProfile employeeProfile;
+    @Column(name = "employee_id")
+    private UUID employeeId;
 
     @Column(name = "user_name", length = 50, nullable = false)
     private String userName;

@@ -3,6 +3,7 @@ package com.project.employee.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class EmployeeProfile {
 
     @Id
@@ -21,9 +23,8 @@ public class EmployeeProfile {
     @Column(name = "employee_id")
     private UUID employeeId;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
+    @Column(name = "department_id")
+    private UUID departmentId;
 
     @Column(name = "designation", length = 100)
     private String designation;

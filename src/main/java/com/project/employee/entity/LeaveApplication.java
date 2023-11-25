@@ -3,6 +3,7 @@ package com.project.employee.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class LeaveApplication {
 
     @Id
@@ -20,9 +22,8 @@ public class LeaveApplication {
     @Column(name = "application_id")
     private UUID applicationId;
 
-    @ManyToOne
-    @JoinColumn(name = "leave_id")
-    private EmployeeLeave employeeLeave;
+    @Column(name = "leave_id")
+    private UUID leaveId;
 
     @Column(name = "leave_type", length = 50)
     private String leaveType;
@@ -39,9 +40,8 @@ public class LeaveApplication {
     @Column(name = "status", length = 20)
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "approver_id")
-    private EmployeeProfile approver;
+    @Column(name = "approver_id")
+    private EmployeeProfile approverId;
 
     @Column(name = "approval_date")
     private LocalDate approvalDate;

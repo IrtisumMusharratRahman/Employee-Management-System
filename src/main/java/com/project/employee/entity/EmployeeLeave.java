@@ -3,6 +3,7 @@ package com.project.employee.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class EmployeeLeave {
 
     @Id
@@ -20,9 +22,8 @@ public class EmployeeLeave {
     @Column(name = "leave_id")
     private UUID leaveId;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private EmployeeProfile employeeProfile;
+    @Column(name = "employee_id")
+    private UUID employeeId;
 
     @Column(name = "start_date")
     private LocalDate startDate;
